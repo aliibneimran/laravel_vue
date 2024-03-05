@@ -10,9 +10,29 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        
         <!-- Option 1: Include in HTML -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+{{-- For Template --}}
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <!-- Owl Carousel Theme Default CSS -->
+        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <!-- Box Icon CSS-->
+        <link rel="stylesheet" href="assets/css/boxicon.min.css">
+        <!-- Flaticon CSS-->
+        <link rel="stylesheet" href="assets/fonts/flaticon/flaticon.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+		<!-- Responsive CSS -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">  
+
+
 
         <!-- Scripts -->
         @routes
@@ -21,5 +41,34 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+
+        <!-- Back To Top Start -->
+		<div class="top-btn">
+			<i class='bx bx-chevrons-up bx-fade-up'></i>
+		</div>
+		<!-- Back To Top End -->
+
+
+
+        <!-- jQuery first, then Bootstrap JS -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		<!-- Owl Carousel JS -->
+		<script src="assets/js/owl.carousel.min.js"></script>
+		<!-- Nice Select JS -->
+		<script src="assets/js/jquery.nice-select.min.js"></script>
+		<!-- Magnific Popup JS -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+		<!-- Subscriber Form JS -->
+		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+		<!-- Form Velidation JS -->
+		<script src="assets/js/form-validator.min.js"></script>
+		<!-- Contact Form -->
+		<script src="assets/js/contact-form-script.js"></script>
+		<!-- Meanmenu JS -->
+		<script src="assets/js/meanmenu.js"></script>
+		<!-- Custom JS -->
+		<script src="assets/js/custom.js"></script>
     </body>
 </html>
