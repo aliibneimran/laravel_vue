@@ -41,7 +41,7 @@ function destroy(id) {
             <td>{{ student.email }}</td>
             <td>
                 <Link :href="route('students.edit', student.id)" class="mr-2"><i class="bi bi-pencil-square"></i></Link>
-                <Link @click="destroy(student.id)"><i class="bi bi-trash"></i></Link>
+                <button @click="destroy(student.id)"><i class="bi bi-trash"></i></button>
             </td>
             </tr>
         </tbody>

@@ -40,7 +40,6 @@ class StudentController extends Controller
             'phone' => $request->phone,
             'email' => $request->email
         ]);
-        sleep(1);
 
         return redirect()->route('students.index')->with('message', 'Students Created Successfully');
     }
@@ -77,7 +76,6 @@ class StudentController extends Controller
         $student->phone = $request->phone;
         $student->email = $request->email;
         $student->save();
-        sleep(1);
 
         return redirect()->route('students.index')->with('message', 'Student Updated Successfully');
     }
@@ -88,7 +86,6 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
-        sleep(1);
 
         return redirect()->route('students.index')->with('message', 'Student Delete Successfully');
     }
