@@ -25,29 +25,30 @@
         <div class="navbar-area">
 			<!-- Menu For Mobile Device -->
 			<div class="mobile-nav">
-				<a href="index.html" class="logo">
+				<Link :href="route('home')" class="logo">
 					<img src="assets/img/logo.png" alt="logo">
-				</a>
+				</Link>
 			</div>
 		
 			<!-- Menu For Desktop Device -->
 			<div class="main-nav">
 				<div class="container">
 					<nav class="navbar navbar-expand-lg navbar-light">
-						<a class="navbar-brand" href="/">
+						<Link class="navbar-brand" :href="route('home')">
 							<img src="assets/img/logo.png" alt="logo">
-						</a>
+						</Link>
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 							<ul class="navbar-nav m-auto">
-								<li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
-								<li class="nav-item"><a href="" class="nav-link">Jobs</a></li>                                             
-								<li class="nav-item"><a href="" class="nav-link">About</a></li>                
-								<li class="nav-item"><a href="" class="nav-link">Contact</a></li>                
+								<li class="nav-item"><Link :href="route('home')" class="nav-link active">Home</Link></li>                                            
+								<li class="nav-item"><Link :href="route('about.index')" class="nav-link">About</Link></li>                
+								<li class="nav-item"><Link :href="route('contact.index')" class="nav-link">Contact</Link></li>                
+								<li class="nav-item"><Link :href="route('students.index')" class="nav-link">Student</Link></li>                
+								            
 							</ul>
 
 							<div class="other-option">
-								<a href="" class="signup-btn">Sign Up</a>
-								<a href="" class="signin-btn">Sign In</a>
+								<Link :href="route('signin.index')" class="signup-btn">Sign Up</Link>
+								<Link :href="route('signup.index')" class="signin-btn">Sign In</Link>
 							</div>
 						</div>
 					</nav>
@@ -57,10 +58,8 @@
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup>
+import { Link } from '@inertiajs/vue3';
 </script>
 
 <style lang="scss" scoped>

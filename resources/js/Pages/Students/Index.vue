@@ -1,5 +1,6 @@
 <script setup>
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import Layout from '../../Layouts/Layout.vue'
 
 const {students} = usePage().props;
 // const props = defineProps({
@@ -21,7 +22,8 @@ function destroy(id) {
 
 
 <template>
-    <div class="container m-10">
+<Layout>
+    <div class="container mt-4">
         <Link :href="route('students.create')" class="btn btn-primary">Add Student</Link>
     <table class="table table-dark mt-4">
         <thead>
@@ -47,6 +49,7 @@ function destroy(id) {
         </tbody>
     </table>
     </div>
+</Layout>
 </template>
 
 <style>

@@ -1,13 +1,8 @@
 <script setup>
-   import Header from '../Components/Header.vue'
-   import Footer from '../Components/Footer.vue'
+   import Layout from '../Layouts/Layout.vue'
 </script>
 <template>
-    <div>
-		<!-- Navbar Area Start -->
-		<Header></Header>
-		<!-- Navbar Area End -->
-
+	<Layout>
 		<!-- Banner Section Start -->
 		<div class="banner-section">
 			<div class="d-table">
@@ -1290,10 +1285,7 @@
 			</div>
 		</section>
 		<!-- Blog Section End -->
-
-		<!-- Footer Section Start -->
-		<Footer></Footer>
-    </div>
+	</Layout>
 </template>
 
 

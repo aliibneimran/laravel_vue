@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SigninController;
+use App\Http\Controllers\SignupController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -18,18 +23,25 @@ use Inertia\Inertia;
 |
 */
 
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::resource('about',AboutController::class);
+Route::resource('contact',ContactController::class);
+Route::resource('signin',SigninController::class);
+Route::resource('signup',SignupController::class);
+Route::resource('students',StudentController::class);
+
 Route::resource('blogs',BlogController::class)->middleware('auth');
-Route::resource('students',StudentController::class)->middleware('auth');
 
 
-Route::get('/', function () {
-    return Inertia::render('Home', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Home', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
