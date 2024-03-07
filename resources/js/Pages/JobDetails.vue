@@ -33,7 +33,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-md-2">
                                                 <div class="company-logo">
-                                                    <img src="/assets/img/company-logo/1.png" alt="logo">
+                                                    <img :src="'/uploads/' + CompanyImage(jobs.company_id)" alt="logo">
                                                 </div>
                                             </div>
                                             <div class="col-md-10">
@@ -75,20 +75,20 @@
                                                 <table class="table">
                                                     <tbody>
                                                         <tr>
-                                                            <td><span>Company</span></td>
-                                                            <td>Tourt Design LTD</td>
+                                                            <td><span>Company : </span></td>
+                                                            <td>{{CompanyName(jobs.company_id)}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Location</span></td>
-                                                            <td>Wellesley Rd, London</td>
+                                                            <td><span>Location :</span></td>
+                                                            <td>{{LocationName(jobs.location_id)}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Job Type</span></td>
-                                                            <td>Full Time</td>
+                                                            <td><span>Job Type :</span></td>
+                                                            <td>{{CategoryName(jobs.category_id)}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Email</span></td>
-                                                            <td><a href="mailto:hello@company.com">hello@company.com</a></td>
+                                                            <td><span>Email :</span></td>
+                                                            <td><a href="mailto:hello@company.com">{{CompanyEmail(jobs.company_id)}}</a></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -97,19 +97,19 @@
                                                 <table class="table">
                                                     <tbody>
                                                         <tr>
-                                                            <td><span>Experince</span></td>
+                                                            <td><span>Experince :</span></td>
                                                             <td>2 Years</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Language</span></td>
+                                                            <td><span>Language :</span></td>
                                                             <td>English</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Salary</span></td>
-                                                            <td>$10,000</td>
+                                                            <td><span>Salary :</span></td>
+                                                            <td>${{jobs.salary}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><span>Website</span></td>
+                                                            <td><span>Website :</span></td>
                                                             <td><a href="#">www.company.com</a></td>
                                                         </tr>
                                                     </tbody>
@@ -132,9 +132,9 @@
                         <div class="job-sidebar">
                             <h3>Posted By</h3>
                             <div class="posted-by">
-                                <img src="/assets/img/client-1.png" alt="client image">
+                                <img :src="'/uploads/' + CompanyImage(jobs.company_id)" alt="client image" width="70" height="70">
                                 <h4>John Doe</h4>
-                                <span>CEO of Tourt Design LTD</span>
+                                <span>CEO of {{CompanyName(jobs.company_id)}}</span>
                             </div>
                         </div>
 
@@ -483,6 +483,10 @@ const{jobs,categories,locations,industries,companies,comDetails,application,user
     const CompanyName = (id) => {
         const company = companies.find(com => com.id === id);
         return company ? company.name : 'Unknown Company';
+    };
+    const CompanyEmail = (id) => {
+        const company = companies.find(com => com.id === id);
+        return company ? company.email : 'Unknown Company';
     };
     const CompanyImage = (id) => {
         const company = comDetails.find(com => com.id === id);
