@@ -29,6 +29,8 @@ class HomeController extends Controller
         $data['locations'] = Location::get();
         $data['industries'] = Industry::all();
         $data['categories'] = Category::all(); 
+       
+        $data['bycategory'] = Job::whereIn('category_id', $data['categories']->pluck('id'))->count();
 
         $data['companies'] = Company::all();
         $data['comDetails'] = CompanyDetails::all();
