@@ -25,7 +25,8 @@ class HomeController extends Controller
         $data['totalJobsOneMonth'] = Job::whereBetween('created_at', [$startDate, $endDate])->count();
 
         $data['locations'] = Location::with('job')->get();
-        $data['jobs'] = Job::latest()->take(3)->get();
+        // $data['jobs'] = Job::latest()->take(3)->get();
+        $data['jobs'] = Job::all();
         $data['locations'] = Location::get();
         $data['industries'] = Industry::all();
         $data['categories'] = Category::all(); 
@@ -35,7 +36,8 @@ class HomeController extends Controller
         $data['companies'] = Company::all();
         $data['comDetails'] = CompanyDetails::all();
         $data['totalJobs'] = Job::whereIn('company_id', $data['companies']->pluck('id'))->count();
-
+        $data['total_industry'] = Industry::count();
+        $data['total_jobs'] = Job::count();
         $data['total_company'] = Company::count(); 
         $data['total_candidate'] = Candidate::count(); 
         $data['user'] = Auth::guard('candidate')->check();

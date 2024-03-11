@@ -13,7 +13,7 @@
 							<div class="category-card">
 								<i class='flaticon-accounting'></i>
 								<h3>{{category.name}}</h3>
-								<!-- <p>{{ jobCount(category.id)}}</p> -->
+								<p>{{ TotalJob(category.id)}} Jobs</p>
 							</div>
 						</a>
 					</div>
@@ -26,13 +26,12 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
 import { format } from 'date-fns';
-const {categories,bycategory} = usePage().props;
+const {categories,jobs} = usePage().props;
 
-// const jobCount = (categoryId) => {
-//   const category = bycategory.find(item => item.id === categoryId);
-//   return category ? category.job_count : 0;
-// };
-
+const TotalJob = (id) => {
+    const totalJobs = jobs.filter(item => item.category_id === id).length;
+     return totalJobs;
+};
 
 
 // console.log(category.job_count)

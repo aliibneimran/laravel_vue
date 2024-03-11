@@ -9,6 +9,7 @@
    import Company from '../Components/Company.vue'
    import Info from '../Components/JobInfo.vue'
    import Category from '../Components/Category.vue'
+   import Count from '../Components/Count.vue'
 </script>
 <template>
 	<Layout>
@@ -64,42 +65,7 @@
 		<!-- Jobs Section Start -->
 		<Job></Job>
 		<!-- Way To Use Section Start -->
-		<section class="use-section pt-100 pb-70">
-			<div class="container">
-				<div class="section-title text-center">
-					<h2>Easiest Way To Use</h2>
-				</div>
-
-				<div class="row">
-					<div class="col-md-4 col-sm-6">
-						<div class="use-text">
-							<span>1</span>
-							<i class='flaticon-website'></i>
-							<h3>Browse Job</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6">
-						<div class="use-text">
-							<span>2</span>
-							<i class='flaticon-recruitment'></i>
-							<h3>Find Your Vaccancy</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-						</div>
-					</div>
-
-					<div class="col-md-4 col-sm-6 offset-sm-3 offset-md-0">
-						<div class="use-text">
-							<span>3</span>
-							<i class='flaticon-login'></i>
-							<h3>Submit Resume</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<Count></Count>
 		<!-- Companies Section Start -->
 		<Company></Company>
 		<!-- Why Choose Section Start -->

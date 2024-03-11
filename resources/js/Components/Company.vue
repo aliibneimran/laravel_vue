@@ -8,92 +8,50 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
+                <div v-for="company in companies" :key="company.id" class="col-lg-3 col-sm-6">
                     <div class="company-card">
                         <div class="company-logo">
                             <a href="job-grid.html">
-                                <img src="assets/img/top-company/1.png" alt="company logo">
+                                <img :src="'/uploads/' + CompanyImage(company.id)" alt="company logo">
                             </a>
                         </div>
                         <div class="company-text">
-                            <h3>Trophy & Sans</h3>
+                            <h3>{{company.name}}</h3>
                             <p>
                                 <i class='bx bx-location-plus'></i>
-                                Green Lanes, London
+                                {{CompanyLocation(company.id)}}
                             </p>
-                            <a href="job-grid.html" class="company-btn">
-                                25 Open Position
+                            <a  href="job-grid.html" class="company-btn">
+                                {{ CompanyJob(company.id) }} Jobs
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="company-card">
-                        <div class="company-logo">
-                            <a href="job-grid.html">
-                                <img src="assets/img/top-company/2.png" alt="company logo">
-                            </a>
-                        </div>
-                        <div class="company-text">
-                            <h3>Trout Design</h3>
-                            <p>
-                                <i class='bx bx-location-plus'></i>
-                                Park Avenue, Mumbai
-                            </p>
-                            <a href="job-grid.html" class="company-btn">
-                                35 Open Position
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="company-card">
-                        <div class="company-logo">
-                            <a href="job-grid.html">
-                                <img src="assets/img/top-company/3.png" alt="company logo">
-                            </a>
-                        </div>
-                        <div class="company-text">
-                            <h3>Resland LTD</h3>
-                            <p>
-                                <i class='bx bx-location-plus'></i>
-                                Betas Quence, London
-                            </p>
-                            <a href="job-grid.html" class="company-btn">
-                                20 Open Position
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="company-card">
-                        <div class="company-logo">
-                            <a href="job-grid.html">
-                                <img src="assets/img/top-company/4.png" alt="company logo">
-                            </a>
-                        </div>
-                        <div class="company-text">
-                            <h3>Lawn Hopper</h3>
-                            <p>
-                                <i class='bx bx-location-plus'></i>
-                                Wellesley Rd, London
-                            </p>
-                            <a href="job-grid.html" class="company-btn">
-                                45 Open Position
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 </template>
 
 <script setup>
+import { Link, usePage } from '@inertiajs/vue3';
+const {companies,comDetails,jobs} = usePage().props;
 
+const CompanyLocation = (id) => {
+    const location = comDetails.find(cat => cat.id === id);
+     return location ? location.address : 'Unknown Address';
+};
+const CompanyImage = (id) => {
+    const image = comDetails.find(item => item.id === id);
+     return image ? image.image : 'No Image';
+};
+const CompanyJob = (id) => {
+    const totalJobs = jobs.filter(item => item.company_id === id).length;
+     return totalJobs;
+};
+
+
+// console.log(CompanyJob(id))
 </script>
 
 <style lang="scss" scoped></style>

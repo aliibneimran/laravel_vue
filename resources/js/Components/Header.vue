@@ -166,7 +166,7 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
 const { user } = usePage().props;
-console.log(user)
+// console.log(user)
 </script>
 
 <style lang="scss" scoped></style>
