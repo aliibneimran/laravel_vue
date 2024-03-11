@@ -7,7 +7,7 @@
                     <h2>Contact Us</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>Contact Us</li>
                     </ul>
@@ -169,7 +169,8 @@
 </template>
 
 <script setup>
- import Layout from '../Layouts/Layout.vue'
+ import { Link } from '@inertiajs/vue3';
+import Layout from '../Layouts/Layout.vue'
 </script>
 
 <style lang="scss" scoped>

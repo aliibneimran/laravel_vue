@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\PackageController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Frontend\ApplicationController;
 use App\Http\Controllers\Frontend\CandidateController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -55,7 +56,7 @@ Route::prefix('candidate')->group(function(){
     // Route::get('job/details/{id}', [JobDetailsController::class, 'index'])->name('job.details')->middleware('candidate');
 
     
-    // Route::post('apply', [ApplicationController::class, 'application'])->name('apply.job')->middleware('candidate');
+    Route::post('apply', [ApplicationController::class, 'application'])->name('apply.job')->middleware('candidate');
     
     Route::get('about', [AboutController::class, 'index'])->name('about_us')->middleware('candidate');
     Route::get('contact', [ContactController::class, 'index'])->name('contact_us')->middleware('candidate');

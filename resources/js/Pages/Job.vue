@@ -7,7 +7,7 @@
                     <h2>Job Grid</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>Job Grid</li>
                     </ul>

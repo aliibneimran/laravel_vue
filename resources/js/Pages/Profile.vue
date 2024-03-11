@@ -7,7 +7,7 @@
                     <h2>Account</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>Account</li>
                     </ul>
@@ -206,6 +206,7 @@
 </template>
 
 <script setup>
+import { Link } from '@inertiajs/vue3';
 import Layout from '../Layouts/Layout.vue'
 </script>
 

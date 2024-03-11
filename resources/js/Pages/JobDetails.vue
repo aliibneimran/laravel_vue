@@ -7,7 +7,7 @@
                     <h2>Job Details</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>Job Details</li>
                     </ul>
@@ -121,7 +121,8 @@
                                     </div>
 
                                     <div class="theme-btn">
-                                        <button type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#myModal">Apply Now</button>
+                                        <button v-if="user" type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#myModal">Apply Now</button>
+                                        <Link  v-else :href="route('candidate_login_form')" class="default-btn">Signin First</Link>
                                         <Modal></Modal>
                                     </div>
                                 </div>
@@ -468,7 +469,7 @@
 </template>
 
 <script setup>
-import { usePage } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { format } from 'date-fns';
 import Layout from '../Layouts/Layout.vue'
 import Modal from '../Components/Modal.vue'
