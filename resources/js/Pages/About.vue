@@ -216,8 +216,8 @@
 </template>
 
 <script setup>
- import Layout from '../Layouts/Layout.vue'
- import Counter from '../Components/Counter.vue'
+import Layout from '../Layouts/Layout.vue'
+import Counter from '../Components/Counter.vue'
 import { Link } from '@inertiajs/vue3';
 </script>
 

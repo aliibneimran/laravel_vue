@@ -35,7 +35,7 @@
 
                             <ul>
                                 <li><a href="#" class="active"><i class='bx bx-user'></i>My Profile</a></li>
-                                <li><a href="resume.html"><i class='bx bxs-file-doc'></i>My Resume</a></li>
+                                <li><Link :href="route('resume')"><i class='bx bxs-file-doc'></i>My Resume</Link></li>
                                 <li><a href="#"><i class='bx bx-briefcase'></i>Applied Job</a></li>
                                 <li><a href="#"><i class='bx bx-envelope'></i>Messages</a></li>
                                 <li><a href="#"><i class='bx bx-heart'></i>Saved Jobs</a></li>
