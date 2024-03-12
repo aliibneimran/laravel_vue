@@ -49,7 +49,39 @@
                     <div class="col-md-8">
                         <div class="account-details">
                             <h3>Basic Information</h3>
-                            <form class="basic-info">
+                            <form class="basic-info" v-if="!isEditMode">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Your Name</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="Your Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Your Email</label>
+                                            <input type="email" :disabled="true" class="form-control" placeholder="Your Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Your Phone</label>
+                                            <input type="number" :disabled="true" class="form-control" placeholder="Your Phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Job Title</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="Job Title">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" @click="enableEditMode" class="account-btn">Edit</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form class="basic-info" v-if="isEditMode">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -57,21 +89,18 @@
                                             <input type="text" class="form-control" placeholder="Your Name">
                                         </div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Your Email</label>
                                             <input type="email" class="form-control" placeholder="Your Email">
                                         </div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Your Phone</label>
                                             <input type="number" class="form-control" placeholder="Your Phone">
                                         </div>
                                     </div>
-
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Job Title</label>
@@ -79,8 +108,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="account-btn">Edit</button>
-                                        <button type="submit" class="account-btn">Save</button>
+                                        <button type="submit" @click="saveAndDisableEditMode" class="account-btn">Save</button>
                                     </div>
                                 </div>
                             </form>
@@ -160,7 +188,38 @@
                             </form>
 
                             <h3>Social links</h3>
-                            <form class="candidates-sociak">
+                            <form class="candidates-sociak" v-if="!isEditMode">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Facebook</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="www.facebook.com/user">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Twitter</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="www.twitter.com/user">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Linkedin</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="www.Linkedin.com/user">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>Github</label>
+                                            <input type="text" :disabled="true" class="form-control" placeholder="www.Github.com/user">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" @click="enableEditMode" class="account-btn">Edit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form class="candidates-sociak" v-if="isEditMode">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
@@ -168,22 +227,19 @@
                                             <input type="text" class="form-control" placeholder="www.facebook.com/user">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Twitter</label>
-                                            <input type="number" class="form-control"
+                                            <input type="text" class="form-control"
                                                 placeholder="www.twitter.com/user">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Linkedin</label>
                                             <input type="text" class="form-control" placeholder="www.Linkedin.com/user">
                                         </div>
                                     </div>
-
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Github</label>
@@ -191,8 +247,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" class="account-btn">Edit</button>
-                                        <button type="submit" class="account-btn">Save</button>
+                                        <button type="submit" @click="saveAndDisableEditMode" class="account-btn">Save</button>
                                     </div>
                                 </div>
                             </form>
@@ -208,6 +263,19 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import Layout from '../Layouts/Layout.vue'
+import { ref } from 'vue';
+const isEditMode = ref(false);
+
+const enableEditMode = () => {
+  isEditMode.value = true;
+};
+
+const saveAndDisableEditMode = () => {
+  // Handle save logic here
+
+  // After saving, disable edit mode
+  isEditMode.value = false;
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -15,23 +15,23 @@
 
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name"  v-model="form.name" class="form-control" :placeholder="candidate.name"  required>
+                            <input type="text" name="name"  v-model="form.name" class="form-control" :placeholder="candidate.name" >
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="email" v-model="form.email" class="form-control" :placeholder="candidate.email" required>
+                            <input type="email" name="email" v-model="form.email" class="form-control" :placeholder="candidate.email">
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" name="phone"  v-model="form.phone" class="form-control"  required>
+                            <input type="text" name="phone"  v-model="form.phone" class="form-control" :placeholder="Phone(canDetails.contact)">
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea name="bio"  v-model="form.bio" class="form-control" required></textarea>
+                            <textarea name="bio"  v-model="form.bio" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Upload CV</label>
-                            <input type="file" ref="cv" name="cv" @change="onFileChange" class="form-control" required>
+                            <input type="file" ref="cv" name="cv" @change="onFileChange" class="form-control">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="post-btn">
@@ -51,7 +51,11 @@
 
 <script setup>
 import { useForm, usePage } from '@inertiajs/vue3';
-const{jobs,companies,application,user,candidate} = usePage().props
+const{jobs,companies,application,user,candidate,canDetails} = usePage().props
+const Phone = (id) => {
+    const phone = canDetails.find(item => item.id === id);
+    return phone ? phone.contact : 'No Phone Number';
+};
 const form = useForm({
     job_id: '',
     company_id: '',
@@ -70,6 +74,7 @@ const submit = () => {
 const onFileChange = (e) => {
   form.cv = e.target.files[0];
 };
+console.log()
 </script>
 
 <style lang="scss" scoped></style>

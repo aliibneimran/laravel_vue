@@ -6,7 +6,7 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="footer-widget">
 							<div class="footer-logo">
-								<a href="/"><img src="assets/img/logo.png" alt="logo"></a>
+								<a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
 							</div>
 
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna. Sed eiusmod tempor incididunt ut.</p>

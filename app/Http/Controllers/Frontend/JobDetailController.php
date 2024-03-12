@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Applicant;
+use App\Models\CandidateDetails;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\CompanyDetails;
@@ -30,6 +31,7 @@ class JobDetailController extends Controller
             $data['locations'] = Location::all();
             $data['companies'] = Company::all();
             $data['comDetails'] = CompanyDetails::all();
+            $data['canDetails'] = CandidateDetails::all();
             $data['token'] = csrf_token();
             return Inertia::render('JobDetails',$data);
         } else {
