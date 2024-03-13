@@ -34,10 +34,10 @@ use Inertia\Inertia;
 */
 
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('about', [AboutController::class, 'index']);
-Route::get('contact', [ContactController::class, 'index']);
-Route::get('job', [JobListController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('about', [AboutController::class, 'index'])->name('about');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('job', [JobListController::class, 'index'])->name('job');
 Route::get('job-details/{id}', [JobDetailController::class, 'index'])->name('job.details');
 
 //Candidate Middleware
@@ -61,7 +61,8 @@ Route::prefix('candidate')->group(function(){
     Route::get('about', [AboutController::class, 'index'])->name('about_us')->middleware('candidate');
     Route::get('contact', [ContactController::class, 'index'])->name('contact_us')->middleware('candidate');
     Route::get('job', [JobListController::class, 'index'])->name('all_job')->middleware('candidate');
-    Route::get('job-detail', [JobDetailController::class, 'index'])->name('job_details')->middleware('candidate');
+    // Route::get('job_detail/{id}', [JobDetailController::class, 'index'])->name('job_details')->middleware('candidate');
+
 
 });
 

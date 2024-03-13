@@ -137,16 +137,16 @@
 						<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 							<ul class="navbar-nav m-auto">
 								<li class="nav-item">
-									<Link href="/" class="nav-link active">Home</Link>
+									<Link :href="route('home')" class="nav-link active">Home</Link>
 								</li>
 								<li class="nav-item">
-									<Link href="job" class="nav-link">Jobs</Link>
+									<Link :href="route('job')" class="nav-link">Jobs</Link> 
 								</li>
 								<li class="nav-item">
-									<Link href="about" class="nav-link">About</Link>
+									<Link :href="route('about')" class="nav-link">About</Link>
 								</li>
 								<li class="nav-item">
-									<Link href="contact" class="nav-link">Contact</Link>
+									<Link :href="route('contact')" class="nav-link">Contact</Link>
 								</li>
 								<li class="nav-item"><a :href="route('company_login_form')" class="nav-link">For
 										Company</a></li>
