@@ -68,42 +68,10 @@
 						<div class="footer-widget pl-60">
 							<h3>Quick Links</h3>
 							<ul>
-								<li>
-									<a href="index.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										Home
-									</a>
-								</li>
-								<li>
-									<a href="about.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										About
-									</a>
-								</li>
-								<li>
-									<a href="faq.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										FAQ
-									</a>
-								</li>
-								<li>
-									<a href="pricing.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										Pricing
-									</a>
-								</li>
-								<li>
-									<a href="privacy.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										Privacy
-									</a>
-								</li>
-								<li>
-									<a href="contact.html">
-										<i class='bx bx-chevrons-right bx-tada'></i>
-										Contact
-									</a>
-								</li>
+								<li><Link href="/"><i class='bx bx-chevrons-right bx-tada'></i>Home</Link></li>
+								<li><Link href="faq"><i class='bx bx-chevrons-right bx-tada'></i>Faq</Link></li>
+								<li><Link href="privacy"><i class='bx bx-chevrons-right bx-tada'></i>Privacy</Link></li>
+								<li><Link href="terms & condition"><i class='bx bx-chevrons-right bx-tada'></i>Terms & Condition</Link></li>
 							</ul>
 						</div>
 					</div>
@@ -154,9 +122,9 @@
     </div>
 </template>
 
-<script>
-import { Link, usePage } from '@inertiajs/vue3';
-// const { user } = usePage().props;
+<script setup>
+import { Link} from '@inertiajs/vue3';
+
 </script>
 
 <style lang="scss" scoped>

@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\JobDetailController;
 use App\Http\Controllers\Frontend\JobListController;
 use App\Http\Controllers\Frontend\SigninController;
 use App\Http\Controllers\Frontend\SignupController;
+use App\Http\Controllers\frontend\StaticController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,6 +40,10 @@ Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::get('job', [JobListController::class, 'index'])->name('job');
 Route::get('job-details/{id}', [JobDetailController::class, 'index'])->name('job.details');
+Route::get('terms & condition', [StaticController::class, 'termCondition']);
+Route::get('privacy', [StaticController::class, 'privacy']);
+Route::get('faq', [StaticController::class, 'faq']);
+
 
 //Candidate Middleware
 Route::prefix('candidate')->group(function(){
@@ -49,6 +54,7 @@ Route::prefix('candidate')->group(function(){
     Route::get('signup',[CandidateController::class,'register'])->name('candidate_register');
     Route::post('signup/create',[CandidateController::class,'registration'])->name('candidate.register.create');
 
+    Route::get('resume', [StaticController::class, 'resume'])->name('resume')->middleware('candidate');
     // Route::get('edit-profile', [CandidateController::class, 'editProfile'])->name('candidate.edit.profile')->middleware('candidate');
     // Route::post('update-profile', [CandidateController::class, 'updateProfile'])->name('candidate.update.profile')->middleware('candidate');
  
