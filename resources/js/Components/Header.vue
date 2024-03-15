@@ -84,6 +84,7 @@
 										<Link href="contact" class="nav-link">Contact</Link>
 									</li>
 									<li class="nav-item"><a :href="route('company_login_form')" class="nav-link">For Company</a></li>
+									
 									<li class="nav-item">
 										<Link :href="route('candidate_register')" class="nav-link">Sign Up</Link>
 									</li>
@@ -148,8 +149,9 @@
 								<li class="nav-item">
 									<Link :href="route('contact')" class="nav-link">Contact</Link>
 								</li>
-								<li class="nav-item"><a :href="route('company_login_form')" class="nav-link">For
-										Company</a></li>
+								<li class="nav-item"><a :href="route('company_login_form')" class="nav-link">For Company</a></li>
+								
+								
 							</ul>
 							<div class="other-option">
 								<Link :href="route('candidate_register')" class="signup-btn">Sign Up</Link>
