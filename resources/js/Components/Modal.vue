@@ -7,11 +7,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="job-post-from" @submit.prevent="submit">
+                    <div class="success" v-if="application">
+                        <h1>Apply Successful</h1>
+                    </div>
+                    <form v-else class="job-post-from" @submit.prevent="submit">
                         <h2>For Application</h2>
-                        <input type="text" id="job_id" v-model="form.jobs_id" :placeholder="jobs.id" />
-                        <input type="text" id="company_id" v-model="form.company_id" :placeholder="jobs.company_id"/>
-                        <input type="text" id="candidate_id" v-model="candidate_id" :placeholder="candidate.id"/>
+                        <input type="hidden" id="job_id" v-model="form.jobs_id"/>
+                        <input type="hidden" id="company_id" v-model="form.company_id"/>
+                        <input type="hidden" id="candidate_id" v-model="candidate_id"/>
 
                         <div class="form-group">
                             <label>Name</label>
@@ -50,7 +53,7 @@
 </template>
 
 <script setup>
-import { useForm, usePage } from '@inertiajs/vue3';
+import {useForm, usePage,} from '@inertiajs/vue3';
 const{jobs,companies,application,user,candidate,canDetails} = usePage().props
 
 const form = useForm({
@@ -67,6 +70,7 @@ const form = useForm({
 const submit = () => {
     form.post(route("apply.job"));
 };
+
 const onFileChange = (e) => {
   form.cv = e.target.files[0];
 };

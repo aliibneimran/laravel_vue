@@ -32,7 +32,7 @@ class ApplicationController extends Controller
         // dd($data); 
         if (Applicant::create($data)) {
             $request->cv->move('uploads/cv', $filename);
-            return redirect()->route('job.details')->with('msg', 'Job Successfully Post');
+            return redirect()->route('')->with('msg', 'Apply Successful');
         }
     }
 }

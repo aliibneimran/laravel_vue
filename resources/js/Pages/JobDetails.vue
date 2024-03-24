@@ -121,9 +121,14 @@
                                     </div>
 
                                     <div class="theme-btn">
-                                        <button v-if="user" type="button" class="default-btn" data-bs-toggle="modal" data-bs-target="#myModal">Apply Now</button>
-                                        <Link  v-else :href="route('candidate_login_form')" class="default-btn">Signin First</Link>
-                                        <Modal></Modal>
+                                        <div v-if="user">
+                                            <button v-if="application" type="button" class="default-btn">Already Applied</button>
+                                            <button v-else type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">Apply Now</button>
+                                            <Modal></Modal>
+                                        </div>
+                                        <div v-else>
+                                            <Link :href="route('candidate_login_form')" class="btn btn-info">Signin First</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -465,15 +470,12 @@
             </div>
         </section>
         <!-- Job Section End -->
-        <div v-if="successMessage" class="alert alert-success" role="alert">
-        {{ successMessage }}
-        </div>
+        
     </Layout>
 </template>
 
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
-import { ref,onMounted } from 'vue';
 import { format } from 'date-fns';
 import Layout from '../Layouts/Layout.vue'
 import Modal from '../Components/Modal.vue'
@@ -507,13 +509,7 @@ const myDate = (createdAt) => {
     return formattedDay;
 };
 
-const successMessage = ref('');
-onMounted(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('success')) {
-        successMessage.value = decodeURIComponent(urlParams.get('success'));
-    }
-});
+
 </script>
 
 <style lang="scss" scoped></style>

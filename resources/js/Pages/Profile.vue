@@ -54,19 +54,19 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Your Name</label>
-                                            <input type="text" :disabled="true" class="form-control" placeholder="Your Name">
+                                            <input type="text" :disabled="true" class="form-control" :placeholder="candidate.name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Your Email</label>
-                                            <input type="email" :disabled="true" class="form-control" placeholder="Your Email">
+                                            <input type="email" :disabled="true" class="form-control" :placeholder="candidate.email">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Your Phone</label>
-                                            <input type="number" :disabled="true" class="form-control" placeholder="Your Phone">
+                                            <input type="number" :disabled="true" class="form-control" :placeholder="canDetails.contact">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -261,9 +261,11 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import Layout from '../Layouts/Layout.vue'
 import { ref } from 'vue';
+const { jobs, categories, locations, industries, companies, comDetails, application, user, candidate,canDetails, token, } = usePage().props
+
 const isEditMode = ref(false);
 
 const enableEditMode = () => {

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Applicant;
 use App\Models\Candidate;
+use App\Models\CandidateDetails;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -56,10 +59,10 @@ class CandidateController extends Controller
     public function profile(){
         $candidate = Auth::guard('candidate')->user();
         $user = Auth::guard('candidate')->check();
-        // $canDetails = CandidateDetails::all()->where('candidate_id', Auth::guard('candidate')->user()->id)->first();
-        // $jobs = Job::all();
-        // $application = Applicant::get();
-        return Inertia::render('Profile',compact('candidate','user'));
+        $canDetails = CandidateDetails::all()->where('candidate_id', Auth::guard('candidate')->user()->id)->first();
+        $jobs = Job::all();
+        $application = Applicant::get();
+        return Inertia::render('Profile',compact('candidate','canDetails','user'));
 
     }
     // public function editProfile(){

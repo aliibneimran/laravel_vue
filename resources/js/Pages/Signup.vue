@@ -28,17 +28,21 @@
                         <form class="signup-form" @submit.prevent="submit">
                             <div class="form-group">
                                 <label>Enter Your Name</label>
-                                <input type="text" name="name" v-model="form.name" class="form-control" placeholder="Enter Your Name" required>
+                                <input type="text" id="name" v-model="form.name" class="form-control" placeholder="Enter Your Name" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Enter Email</label>
-                                <input type="email" name="email" v-model="form.email" class="form-control" placeholder="Enter Your Email" required>
+                                <input type="email" id="email" v-model="form.email" class="form-control" placeholder="Enter Your Email" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Enter Password</label>
-                                <input type="password" name="password" v-model="form.password" class="form-control" placeholder="Enter Your Password" required>
+                                <input type="password" id="password" v-model="form.password" class="form-control" placeholder="Enter Your Password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Enter Password</label>
+                                <input type="password" id="password_confirmation" v-model="form.password_confirmation" class="form-control" placeholder="Enter Your Password" required>
                             </div>
 
                             <div class="signup-btn text-center">
@@ -103,6 +107,7 @@ const form = useForm({
     name: "",
     email: "",
     password: "",
+    password_confirmation: "",
 });
 
 const submit = () => {
