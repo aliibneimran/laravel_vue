@@ -35,11 +35,18 @@ class CandidateController extends Controller
     }
     public function registration(Request $request){
         // dd($request->all());
-        $candidate = Candidate::create([
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'password'=> Hash::make($request->password),
-        ]);
+        $validation = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:candidates,email',
+            'password' => 'required|string|min:6|confirmed',
+        ]); 
+        if($validation){
+            $candidate = Candidate::create([
+                'name'=> $request->name,
+                'email'=> $request->email,
+                'password'=> Hash::make($request->password),
+            ]);
+        }
 
         Auth::guard('candidate')->login($candidate);
 

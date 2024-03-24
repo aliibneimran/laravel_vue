@@ -465,15 +465,19 @@
             </div>
         </section>
         <!-- Job Section End -->
+        <div v-if="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+        </div>
     </Layout>
 </template>
 
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
+import { ref,onMounted } from 'vue';
 import { format } from 'date-fns';
 import Layout from '../Layouts/Layout.vue'
 import Modal from '../Components/Modal.vue'
-const { jobs, categories, locations, industries, companies, comDetails, application, user, candidate, token } = usePage().props
+const { jobs, categories, locations, industries, companies, comDetails, application, user, candidate, token, } = usePage().props
 const CategoryName = (id) => {
     const category = categories.find(cat => cat.id === id);
     return category ? category.name : 'Unknown Category';
@@ -502,6 +506,14 @@ const myDate = (createdAt) => {
     const formattedDay = format(new Date(createdAt), 'dd-MM-yyyy');
     return formattedDay;
 };
+
+const successMessage = ref('');
+onMounted(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+        successMessage.value = decodeURIComponent(urlParams.get('success'));
+    }
+});
 </script>
 
 <style lang="scss" scoped></style>

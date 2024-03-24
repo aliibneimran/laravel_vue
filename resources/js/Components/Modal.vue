@@ -9,29 +9,29 @@
                 <div class="modal-body">
                     <form class="job-post-from" @submit.prevent="submit">
                         <h2>For Application</h2>
-                        <input type="text" name="job_id" v-model="form.jobs.id" :placeholder="jobs.id" />
-                        <input type="text" name="company_id" v-model="jobs.company_id" :placeholder="jobs.company_id"/>
-                        <input type="text" name="candidate_id" v-model="candidate.id" :placeholder="candidate.id"/>
+                        <input type="text" id="job_id" v-model="form.jobs_id" :placeholder="jobs.id" />
+                        <input type="text" id="company_id" v-model="form.company_id" :placeholder="jobs.company_id"/>
+                        <input type="text" id="candidate_id" v-model="candidate_id" :placeholder="candidate.id"/>
 
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="name"  v-model="form.name" class="form-control" :placeholder="candidate.name" >
+                            <input type="text" id="name"  v-model="form.name" class="form-control" :placeholder="candidate.name" >
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="email" v-model="form.email" class="form-control" :placeholder="candidate.email">
+                            <input type="email" id="email" v-model="form.email" class="form-control" :placeholder="candidate.email">
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" name="phone"  v-model="form.phone" class="form-control" :placeholder="Phone(canDetails.contact)">
+                            <input type="text" id="phone"  v-model="form.contact" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea name="bio"  v-model="form.bio" class="form-control"></textarea>
+                            <textarea id="bio"  v-model="form.bio" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Upload CV</label>
-                            <input type="file" ref="cv" name="cv" @change="onFileChange" class="form-control">
+                            <input type="file" ref="cv" id="cv" @change="onFileChange" class="form-control">
                         </div>
                         <div class="text-center">
                             <button type="submit" class="post-btn">
@@ -52,20 +52,16 @@
 <script setup>
 import { useForm, usePage } from '@inertiajs/vue3';
 const{jobs,companies,application,user,candidate,canDetails} = usePage().props
-const Phone = (id) => {
-    const phone = canDetails.find(item => item.id === id);
-    return phone ? phone.contact : 'No Phone Number';
-};
+
 const form = useForm({
-    job_id: '',
-    company_id: '',
-    candidate_id: '',
-    name: '',
-    email: '',
-    phone: '',
+    job_id: jobs.id,
+    company_id: jobs.company_id,
+    candidate_id: candidate.id,
+    name: candidate.name,
+    email: candidate.email,
+    contact: '',
     bio: '',
     cv: '',
-    jobs: jobs,
 });
 
 const submit = () => {
@@ -74,6 +70,8 @@ const submit = () => {
 const onFileChange = (e) => {
   form.cv = e.target.files[0];
 };
+
+
 console.log()
 </script>
 

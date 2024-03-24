@@ -9,7 +9,7 @@
 				<div class="row">
 
 					<div v-for="category in categories" :key="category.id" class="col-lg-3 col-md-4 col-sm-6">
-						<a href="job-list.html">
+						<a href="job-list.html" >
 							<div class="category-card">
 								<i class='flaticon-accounting'></i>
 								<h3>{{category.name}}</h3>

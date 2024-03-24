@@ -9,13 +9,14 @@ use Illuminate\Http\Request;
 class ApplicationController extends Controller
 {
     public function application(Request $request){
-        dd($request->all());
+        // dd($request->all());
         
         $validate = $request->validate([
             'cv' => 'mimes:pdf'
         ]);
 
         $filename = time() . '.' . $request->cv->extension();
+        
         if ($validate) {
             $data = [
                 'name' => $request->name,
@@ -31,7 +32,7 @@ class ApplicationController extends Controller
         // dd($data); 
         if (Applicant::create($data)) {
             $request->cv->move('uploads/cv', $filename);
-            return redirect()->back()->with('msg', 'Job Successfully Post');
+            return redirect()->route('job.details')->with('msg', 'Job Successfully Post');
         }
     }
 }

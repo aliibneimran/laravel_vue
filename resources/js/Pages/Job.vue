@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="row">
-					<div  v-for="job in jobs" :key="job.id" class="col-md-6">
+					<div  v-for="job in filteredJobs" :key="job.id" class="col-md-6">
 						<div class="job-card">
 							<div class="row align-items-center">
 								<div class="col-lg-3">
@@ -109,6 +109,7 @@
 import { Link, usePage } from '@inertiajs/vue3';
 import Layout from '../Layouts/Layout.vue'
 import { format } from 'date-fns';
+import { computed, ref } from 'vue';
 const {jobs,industries,locations,categories,companies,comDetails} = usePage().props;
 console.log(jobs)
 	const CategoryName = (id) => {
@@ -131,6 +132,18 @@ console.log(jobs)
         const formattedDay = format(new Date(createdAt), 'dd-MM-yyyy');
         return formattedDay;
     };
+	const selectedCategoryId = ref(null);
+
+	const filterJobsByCategory = (categoryId) => {
+	selectedCategoryId.value = categoryId;
+	};
+	const filteredJobs = computed(() => {
+	if (selectedCategoryId.value) {
+		return jobs.filter(job => job.category_id === selectedCategoryId.value);
+	} else {
+		return jobs;
+	}
+	});
 </script>
 
 <style lang="scss" scoped>
